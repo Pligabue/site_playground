@@ -1,0 +1,55 @@
+
+.header {
+    padding: 0.75em 0;
+    background-color: rgb(24, 125, 172);
+    white-space: nowrap;
+    min-height: 80px;
+    min-width: 1000px;
+}
+
+.navigation {
+    display: inline-block;
+    width: 40%;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.navigation a, .navigation a:visited {
+    color: black;
+    font-size: 2em;
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+.login {
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.login a, .login a:visited {
+    background-color: rgb(24, 125, 172);
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+    padding: 0.3em 1em 0.5em;
+    border-radius: 20px;
+    margin: 0 1em;
+}
+
+.login a:hover {
+    background-color: white;
+    color: rgb(24, 125, 172);
+}
+
+.logo {
+    display: inline-block;
+    width: 15%;
+    vertical-align: middle;
+}
+
+.logo img{
+    max-width: 30%;
+    vertical-align: middle;
+}
