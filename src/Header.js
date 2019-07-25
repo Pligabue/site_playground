@@ -5,7 +5,6 @@ import "./Header.css"
 
 class Header extends React.Component {
     render(){
-        console.log(logo)
         return(<div>
         
             <div className="header">
@@ -22,7 +21,7 @@ class Header extends React.Component {
             </div>
 
             <div className="border"></div>
-            
+
             <div>
                 <h1 className="nome">Cataratas do Iguaçu</h1>
             </div>

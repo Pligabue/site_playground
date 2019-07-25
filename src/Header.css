@@ -65,7 +65,7 @@
 
 .border {
     padding: 1px 0;
-    background: linear-gradient(to right, black, white);
+    background: linear-gradient(to right, black, rgb(24, 125, 172));
 }
 
 
