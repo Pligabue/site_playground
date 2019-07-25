@@ -1,23 +1,31 @@
 import React from 'react';
 import {Link} from "react-router-dom"
-import logo from "./output-onlinepngtools.png"
+import logo from "./logo_cachoeira.png"
 import "./Header.css"
 
 class Header extends React.Component {
     render(){
         console.log(logo)
-        return(<div className="header">
-            
-            <Link to="/home"><img src={logo} alt="logo" /></Link>
-            <div className="navigation">
-                <Link to="/home">Home</Link>
-                <Link to="/about">About</Link>
+        return(<div>
+        
+            <div className="header">
+                
+                <Link to="/home"><img src={logo} alt="Foto das cachoeiras" /></Link>
+                <div className="navigation">
+                    <Link to="/home">Home</Link>
+                    <Link to="/about">About</Link>
+                </div>
+                <div className="login">
+                    <Link to="/login">Login</Link>
+                    <Link to="/signup">Sign Up</Link>
+                </div>
             </div>
-            <div className="login">
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Sign Up</Link>
-            </div>
+
+            <div className="border"></div>
             
+            <div>
+                <h1 className="nome">Cataratas do Iguaçu</h1>
+            </div>
         </div>)
     }
 } export default Header
