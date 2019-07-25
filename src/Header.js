@@ -7,9 +7,8 @@ class Header extends React.Component {
     render(){
         console.log(logo)
         return(<div className="header">
-            <div className="logo"> 
-                <Link to="/home"><img src={logo} alt="logo" /></Link>
-            </div>
+            
+            <Link to="/home"><img src={logo} alt="logo" /></Link>
             <div className="navigation">
                 <Link to="/home">Home</Link>
                 <Link to="/about">About</Link>
@@ -18,6 +17,7 @@ class Header extends React.Component {
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Sign Up</Link>
             </div>
+            
         </div>)
     }
 } export default Header
