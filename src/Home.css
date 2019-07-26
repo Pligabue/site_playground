@@ -2,16 +2,49 @@
 
 #foto1 {
     width: 100%;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+#foto2 {
+    width: 100%;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+#foto3 {
+    width: 100%;
+    border-top-style: solid;
+    border-bottom-style: solid;
 }
 
 #description1 {
+    position: relative;
+}
+
+#description1 p {
     background-color: white;
     font-family: "Viga";
     font-size: 2em;
     width: 25%;
     position: absolute;
-    top: 15em;
+    top: 7.5em;
     left: 5em;
+    white-space: pre;
+}
+
+#description2 {
+    position: relative;
+}
+
+#description2 p {
+    background-color: white;
+    font-family: "Viga";
+    font-size: 2em;
+    width: 25%;
+    position: absolute;
+    right: 5em;
+    top: 7.5em;
 }
 
 .title {
