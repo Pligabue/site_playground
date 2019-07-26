@@ -12,8 +12,8 @@ function App() {
     <div className="App">
         <Router>
             <Header />
-            <Route path="/home" component={Home}/>
             <Route path="/about" component={About}/>
+            <Route path="/home" component={Home}/>
         </Router>
     </div>
   );

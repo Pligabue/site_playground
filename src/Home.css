@@ -1,4 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+
 #foto1 {
+    width: 100%;
+}
+
+#description1 {
+    background-color: white;
+    font-family: "Viga";
+    font-size: 2em;
+    width: 25%;
     position: absolute;
-    left: 0;
+    top: 15em;
+    left: 5em;
+}
+
+.title {
+    font-family: "Viga";
+    font-size: 3em;
+    padding: 0.5em 0 0.5em;
 }
