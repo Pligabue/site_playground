@@ -33,13 +33,13 @@
     color: rgb(24, 125, 172);
 }
 
-.login {
+.navigationLogin {
     display: inline-block;
     width: 50%;
     text-align: right;
 }
 
-.login a, .login a:visited {
+.navigationLogin a, .navigationLogin a:visited {
     font-family: "Viga";
     color: rgb(24, 125, 172);
     font-size: 1.5em;
@@ -49,7 +49,7 @@
     margin: 0 1em;
 }
 
-.login a:hover {
+.navigationLogin a:hover {
     background-color: rgb(24, 125, 172);
     color: white;
 }
