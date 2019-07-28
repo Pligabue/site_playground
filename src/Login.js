@@ -6,6 +6,7 @@ class Login extends React.Component {
     constructor() {
         super()
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.state = {
             user : "",
             password : "",
@@ -18,16 +19,17 @@ class Login extends React.Component {
         })
     }
 
+    handleSubmit() {
+        console.log(this.state)
+    }
+
     render(){
         return(<div className="login">
-            <label>
-                Usuário:
-                <input type="text" name="user" onChange={this.handleChange}/>
-            </label>
-            <label>
-                Senha:
-                <input type="password" name="password" onChange={this.handleChange}/>
-            </label>
+            <label htmlFor="user">Usuário:</label>
+            <input type="text" name="user" id="user" onChange={this.handleChange}/>
+            <label htmlFor="password">Senha:</label>
+            <input type="password" name="password" id="password" onChange={this.handleChange}/>
+            <button onSubmit={this.handleSubmit}>Login</button>
         </div>)
     }
 } export default Login

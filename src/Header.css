@@ -6,8 +6,7 @@
 
 .header {
     padding: 1em 0;
-    background-color: rgb(24, 125, 172);
-    background-image: linear-gradient(to right, rgb(24, 125, 172), rgb(174, 217, 236));
+    background-color: white;
     white-space: nowrap;
     width: 100%;
 }
@@ -19,18 +18,16 @@
 }
 
 .navigation a, .navigation a:visited {
-    font-family: "Viga";
-    color: white;
+    color: black;
     font-size: 1.5em;
     text-decoration: none;
     padding: 0.2em 1em 0.3em;
-    border-radius: 20px;
-    margin: 0 1em;
+    margin: 0 1em;;
 }
 
 .navigation a:hover {
-    background-color: white;
-    color: rgb(24, 125, 172);
+    background-color: rgb(25, 125, 172);
+    color: white;
 }
 
 .navigationLogin {
@@ -40,17 +37,15 @@
 }
 
 .navigationLogin a, .navigationLogin a:visited {
-    font-family: "Viga";
-    color: rgb(24, 125, 172);
+    color: black;
     font-size: 1.5em;
     text-decoration: none;
     padding: 0.2em 1em 0.3em;
-    border-radius: 20px;
-    margin: 0 1em;
+    margin: 0 1em;;
 }
 
 .navigationLogin a:hover {
-    background-color: rgb(24, 125, 172);
+    background-color: rgb(25, 125, 172);
     color: white;
 }
 
@@ -65,12 +60,11 @@
 
 .border {
     padding: 1px 0;
-    background: linear-gradient(to right, black, rgb(24, 125, 172));
+    background: linear-gradient(to right, black, rgb(89, 131, 181));
 }
 
 
 .nome {
-    /*font-family: "Indie Flower";*/
     font-family: "Amatic SC";
     display: block;
     text-align: left;

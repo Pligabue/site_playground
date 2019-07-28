@@ -1,4 +1,44 @@
-.login label{
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+
+.login {
+    position: relative;
+    left: 30%;
+    width: 20%;
+    padding: 1em 2em;
+    background-color: rgb(24, 125, 172);
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.login label {
+    font-family: "Viga";
+    color: white;
     display: block;
     text-align: left;
+    margin-bottom: 1em;
+}
+
+.login input {
+    width: 100%;
+    display: block;
+    border-style: solid;
+    border-radius: 5px;
+    margin-bottom: 2em;
+} 
+
+.login button {
+    font-family: "Viga";
+    background-color: white;
+    padding: 0.75em 1.5em;
+    border-radius: 20px;
+    border-color: black;
+} 
+
+.login button:hover {
+    background-color: rgb(78, 190, 241);
+    color: white;
+} 
+
+.login button:active {
+    transform: scale(0.95);
 }
