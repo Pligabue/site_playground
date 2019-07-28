@@ -1,33 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 .login {
     position: relative;
-    left: 30%;
-    width: 20%;
-    padding: 1em 2em;
-    background-color: rgb(24, 125, 172);
-    border-style: solid;
-    border-radius: 15px;
+    left: 35%;
+    width: 30%;
 }
 
 .login label {
-    font-family: "Viga";
+    font-family: "Roboto Condensed";
+    font-size: 1.5em;
     color: white;
     display: block;
     text-align: left;
-    margin-bottom: 1em;
+    margin: 1em 0;
 }
 
 .login input {
+    font-family: "Roboto Condensed";
     width: 100%;
+    line-height: 2em;
     display: block;
+    padding: 0 5px;
     border-style: solid;
-    border-radius: 5px;
     margin-bottom: 2em;
 } 
 
 .login button {
-    font-family: "Viga";
+    font-family: "Roboto Condensed";
     background-color: white;
     padding: 0.75em 1.5em;
     border-radius: 20px;
@@ -35,7 +35,7 @@
 } 
 
 .login button:hover {
-    background-color: rgb(78, 190, 241);
+    background-color: rgb(89, 131, 181);
     color: white;
 } 
 
