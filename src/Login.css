@@ -30,8 +30,8 @@
     font-family: "Roboto Condensed";
     background-color: white;
     padding: 0.75em 1.5em;
-    border-radius: 20px;
     border-color: black;
+    float: right;
 } 
 
 .login button:hover {

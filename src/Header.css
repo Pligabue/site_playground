@@ -48,7 +48,7 @@
 }
 
 .navigationLogin a:hover {
-    background-color: rgb(89, 131, 181);
+    background-color: rgb(141, 172, 216);
     color: white;
 }
 
@@ -63,7 +63,7 @@
 
 .border {
     padding: 1px 0;
-    background: linear-gradient(to right, black, rgb(89, 131, 181));
+    background: linear-gradient(to right, black, rgb(141, 172, 216));
 }
 
 
