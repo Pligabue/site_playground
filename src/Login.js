@@ -20,13 +20,14 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(this.state)
+        console.log(this.state);
         e.preventDefault();
+        document.getElementById("form").reset();
     }
 
     render(){
         return(<div className="login">
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} id="form">
                 <label htmlFor="user">Usuário:</label>
                 <input type="text" name="user" id="user" onChange={this.handleChange}/>
                 <label htmlFor="password">Senha:</label>
