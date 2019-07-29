@@ -3,7 +3,28 @@ import {Link} from "react-router-dom"
 import logo from "./logo_cachoeira.png"
 import "./Header.css"
 
+function LoggedStatus(props) {
+    return props.isLoggedIn ? 
+        (<div>
+            <Link to="/profile">Profile</Link>
+            <Link to="/logout">Log Out</Link>
+        </div>)
+        : (<div>
+            <Link to="/login">Log In</Link>
+            <Link to="/signup">Sign Up</Link>
+        </div>)
+}
+
 class Header extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            isLoggedIn: false,
+            id: 0,
+        }
+    }
+
     render(){
         return(<div>
         
@@ -16,8 +37,7 @@ class Header extends React.Component {
                     <Link to="/posts">Posts</Link>
                 </div>
                 <div className="navigationLogin">
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">Sign Up</Link>
+                    <LoggedStatus />
                 </div>
             </div>
 
