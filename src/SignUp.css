@@ -1,5 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
 .signUp {
+    background-color: white;
     position: relative;
-    left: 35%;
+    left: 30%;
     width: 30%;
+    padding: 0 5%;
+    height: 100%;
+}
+
+.signUp label {
+    font-family: "Roboto Condensed";
+    font-size: 1.5em;
+    display: block;
+    text-align: left;
+    padding: 0.5em 0;
+}
+
+.signUp input {
+    font-family: "Roboto Condensed";
+    width: 100%;
+    line-height: 2em;
+    display: block;
+    padding: 0 5px;
+    border-style: solid;
+    margin-bottom: 2em;
+} 
+
+.signUp button {
+    font-family: "Roboto Condensed";
+    background-color: white;
+    padding: 0.75em 1.5em;
+    border-color: black;
+    float: right;
+} 
+
+.signUp button:hover {
+    background-color: rgb(89, 131, 181);
+    color: white;
+} 
+
+.signUp button:active {
+    transform: scale(0.99);
 }

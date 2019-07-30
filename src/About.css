@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 .about {
-}
-
-.title {
-    font-family: "Roboto Condensed";
-    font-size: 3em;
-    padding: 0.5em 0 0.5em;
+    background-color: white;
+    position: relative;
+    left: 30%;
+    width: 30%;
+    padding: 0 5%;
+    height: 100%;
 }
 
 #foto {
@@ -19,7 +19,4 @@
 .texto {
     font-family: "Roboto Condensed";
     font-size: 1.5em;
-    width: 60%;
-    position: absolute;
-    left: 20%;
 }

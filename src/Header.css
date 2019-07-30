@@ -69,7 +69,6 @@
 
 .nome {
     font-family: "Amatic SC";
-    display: block;
-    text-align: left;
-    padding: 0 0 0 6em;
+    position: absolute;
+    left: 6em;
 }

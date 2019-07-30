@@ -1,6 +1,7 @@
 
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -32,6 +33,15 @@
     transform: rotate(360deg);
   }
 }
+
+
+.title {
+    font-family: "Roboto Condensed";
+    font-size: 3em;
+    padding: 2em 0 0;
+    margin: 0;
+}
+
 
 
 .divTable{

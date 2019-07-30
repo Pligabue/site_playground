@@ -1,6 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom"
-import foto from "./P_20190717_144755.jpg"
 
 import "./About.css"
 

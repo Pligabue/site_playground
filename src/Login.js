@@ -8,7 +8,7 @@ class Login extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.state = {
-            user : "",
+            email : "",
             password : "",
         }
     }
@@ -27,9 +27,10 @@ class Login extends React.Component {
 
     render(){
         return(<div className="login">
+            <h1 className="title">Log In</h1>
             <form onSubmit={this.handleSubmit} id="form">
-                <label htmlFor="user">Usuário:</label>
-                <input type="text" name="user" id="user" onChange={this.handleChange}/>
+                <label htmlFor="email">E-mail:</label>
+                <input type="email" name="email" id="email" onChange={this.handleChange}/>
                 <label htmlFor="password">Senha:</label>
                 <input type="password" name="password" id="password" onChange={this.handleChange}/>
                 <button>Login</button>

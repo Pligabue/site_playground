@@ -10,6 +10,8 @@ import Login from "./Login"
 import Posts from "./Posts"
 import SignUp from "./SignUp"
 
+export const url_v3 = "http://127.0.0.1:5000"
+
 function App() {
   return (
     <div className="App">
