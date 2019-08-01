@@ -1,5 +1,9 @@
 import React from 'react';
 import "./Login.css"
+import axios from 'axios';
+
+import {url_v3} from "./App"
+import {getUserData, setUserData, clearUserData} from "./Authentication"
 
 class Login extends React.Component {
 
@@ -20,8 +24,17 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(this.state);
-        e.preventDefault();
+        const url = url_v3 + "/login"
+        axios.post(url, {
+            email: this.state.email,
+            password: this.state.password    
+        }).then(response => {
+            if (!response.data.idusers || !response.data.token) {
+                clearUserData()
+            } else {
+                setUserData(response.data.idusers, response.data.token)
+            }
+        })
         document.getElementById("form").reset();
     }
 

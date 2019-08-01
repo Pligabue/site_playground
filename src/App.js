@@ -10,11 +10,23 @@ import Login from "./Login"
 import Posts from "./Posts"
 import SignUp from "./SignUp"
 
+import {getUserData, setUserData, clearUserData} from "./Authentication"
+
 export const url_v3 = "http://127.0.0.1:5000"
 
-function App() {
-  return (
-    <div className="App">
+class App extends React.Component {
+    
+    constructor() {
+        super()
+        this.state = {
+            idusers: getUserData().idusers,
+            token: getUserData().token
+        }
+        console.log("State: ", this.state)
+    }
+  
+    render () {
+    return (<div className="App">
         <Router>
             <Header />
             <Switch>
@@ -26,8 +38,8 @@ function App() {
                 <Redirect to="/home" />
             </Switch>
         </Router>
-    </div>
-  );
+    </div>)
+  }
 }
 
 export default App;
