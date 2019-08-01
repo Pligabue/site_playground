@@ -11,6 +11,7 @@ import Posts from "./Posts"
 import SignUp from "./SignUp"
 
 import {getUserData, setUserData, clearUserData} from "./Authentication"
+import axios from 'axios';
 
 export const url_v3 = "http://127.0.0.1:5000"
 
@@ -20,9 +21,19 @@ class App extends React.Component {
         super()
         this.state = {
             idusers: getUserData().idusers,
-            token: getUserData().token
+            token: getUserData().token,
+            isLoggedIn: false
         }
-        console.log("State: ", this.state)
+        
+        if (this.state.idusers != null && this.state.token != null)
+            axios.post(url_v3+"/verifylogin", {
+                idusers: this.state.idusers,
+                token: this.state.token
+            }).then(response => {
+                this.setState({
+                    isLoggedIn: response.data
+                })
+            })
     }
   
     render () {

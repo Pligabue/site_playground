@@ -7,7 +7,7 @@ export function setUserData(idusers, token) {
 export function getUserData() {
     return({
         idusers: window.localStorage.getItem('idusers'),
-        token: window.localStorage.getItem('token')
+        token: Number(window.localStorage.getItem('token'))
     })
 }
 
