@@ -7,8 +7,8 @@ import {getUserData, setUserData, clearUserData} from "./Authentication"
 
 class Login extends React.Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.state = {

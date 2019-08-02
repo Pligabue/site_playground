@@ -39,7 +39,7 @@ class App extends React.Component {
     render () {
     return (<div className="App">
         <Router>
-            <Header />
+            <Header idusers={this.state.idusers} isLoggedIn={this.state.idusers} />
             <Switch>
                 <Route path="/home" component={Home}/>
                 <Route path="/about" component={About}/>
