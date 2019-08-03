@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom"
+import {Link, withRouter} from "react-router-dom"
 import logo from "./logo_cachoeira.png"
 import "./Header.css"
 
@@ -7,23 +7,28 @@ import {setUserData, getUserData, clearUserData} from "./Authentication"
 import axios from 'axios';
 import {url_v3} from "./App"
 
-function logOut(e) {
-    console.log("ESTOU AQUI LOGOUT")
+function logOut(props) {
+    console.log("LOGOUT PROPS ", props)
+    console.log("LOGOUT HISTORY ", props.history)
     const url = url_v3 + "/logout"
     axios.post(url, {
-        idusers: e.target.idusers
+        idusers: props.idusers
     }).then(response => {
         clearUserData()
-        e.target.history.push("/home")
+        props.history.push("/home")
+        window.location.reload();
     })
 }
 
 function LoggedStatus(props) {
-    console.log("ESTOU AQUI LOGGEDSTATUS")
+    
+    console.log("LOGGED STATUS HISTORY ", props.history)
     return props.isLoggedIn ? 
         (<div>
             <Link to="/profile">Profile</Link>
-            <button className="link-button" onClick={logOut} history={props.history} idusers={props.idusers} >Log Out</button>
+            <div className="link-button" >
+                <button onClick={() => logOut(props)} idusers={props.idusers} history={props.history} >Log Out</button>
+            </div>    
         </div>)
         : (<div>
             <Link to="/login">Log In</Link>
@@ -39,6 +44,7 @@ class Header extends React.Component {
             isLoggedIn: this.props.isLoggedIn,
             idusers: this.props.idusers,
         }
+        console.log("CONSTRUCTOR: ", this.props.history)
     }
 
     render(){
@@ -64,4 +70,4 @@ class Header extends React.Component {
             </div>
         </div>)
     }
-} export default Header
+} export default withRouter(Header)

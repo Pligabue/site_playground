@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 import "./Login.css"
 import axios from 'axios';
 
@@ -24,6 +25,7 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
+        e.preventDefault()
         const url = url_v3 + "/login"
         axios.post(url, {
             email: this.state.email,
@@ -32,10 +34,13 @@ class Login extends React.Component {
             if (!response.data.idusers || !response.data.token) {
                 clearUserData()
             } else {
+                console.log("LOGIN RESPONSE: ", response.data)
                 setUserData(response.data.idusers, response.data.token)
+                window.location.assign("/home")
             }
+        }).catch(response => {
+            console.log("ERRO NO LOGIN")
         })
-        document.getElementById("form").reset();
     }
 
     render(){
@@ -50,4 +55,4 @@ class Login extends React.Component {
             </form>
         </div>)
     }
-} export default Login
+} export default withRouter(Login)

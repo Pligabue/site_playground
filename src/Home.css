@@ -26,11 +26,11 @@
 #description1 p {
     background-color: white;
     font-family: "Viga";
-    font-size: 2em;
+    font-size: 2rem;
     width: 25%;
     position: absolute;
-    top: 7.5em;
-    left: 5em;
+    top: 7.5rem;
+    left: 5rem;
     white-space: pre;
 }
 
@@ -41,10 +41,10 @@
 #description2 p {
     background-color: white;
     font-family: "Viga";
-    font-size: 2em;
+    font-size: 2rem;
     width: 25%;
     position: absolute;
-    right: 5em;
-    top: 7.5em;
+    right: 5rem;
+    top: 7.5rem;
 }
 

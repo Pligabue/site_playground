@@ -44,3 +44,7 @@
 .login button:active {
     transform: scale(0.99);
 }
+
+.login button:focus {
+    outline: none;
+}

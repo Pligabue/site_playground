@@ -6,25 +6,25 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 .header {
-    padding: 1em 0;
+    padding: 1rem 0;
     background-color: white;
     white-space: nowrap;
     width: 100%;
 }
 
-.navigation {
+.navigation, .navigationLogin {
     display: inline-block;
     width: 50%;
     text-align: center;
 }
 
-.navigation a, .navigation a:visited {
+.navigation a, .navigation a:visited, .navigationLogin a, .navigationLogin a:visited {
     font-family: "Roboto Condensed";
     color: black;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-decoration: none;
-    padding: 0.2em 1em 0.3em;
-    margin: 0 1em;;
+    padding: 0.2rem 1rem 0.3rem;
+    margin: 0 2rem;
 }
 
 .navigation a:hover {
@@ -32,25 +32,44 @@
     color: white;
 }
 
-.navigationLogin {
-    display: inline-block;
-    width: 50%;
-    text-align: right;
-}
-
-.navigationLogin a, .navigationLogin a:visited {
-    font-family: "Roboto Condensed";
-    color: black;
-    font-size: 1.5em;
-    text-decoration: none;
-    padding: 0.2em 1em 0.3em;
-    margin: 0 1em;;
-}
-
 .navigationLogin a:hover {
     background-color: rgb(141, 172, 216);
     color: white;
 }
+
+.link-button {
+    display: inline-block;
+    position: relative;
+    width: 4.5rem;
+    height: 0rem;
+    padding: 0 1rem;
+    margin: 0 2rem;
+}
+
+.link-button button { 
+    position: absolute;
+    left: 0;
+    top: -1.7rem;
+    background: none;
+    border: none; 
+    font-family: "Roboto Condensed";
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 0.2rem 1rem 0.3rem;
+}
+
+.link-button button:hover {
+    background-color: rgb(141, 172, 216);
+    color: white;
+    cursor: pointer;
+}
+
+.link-button button:focus {
+    outline: none;
+}
+
+
 
 
 
@@ -71,20 +90,8 @@
     font-family: "Amatic SC";
     position: absolute;
     left: 6em;
+    white-space: nowrap;
 }
 
-.link-button { 
-    background: none;
-    border: none; 
-    font-family: "Roboto Condensed";
-    color: black;
-    font-size: 1.5em;
-    text-decoration: none;
-    padding: 0.2em 1em 0.3em;
-    margin: 0 1em;;
-}
 
-.link-button:hover {
-    background-color: rgb(141, 172, 216);
-    color: white;
-}
+
