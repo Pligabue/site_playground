@@ -34,12 +34,11 @@ class Login extends React.Component {
             if (!response.data.idusers || !response.data.token) {
                 clearUserData()
             } else {
-                console.log("LOGIN RESPONSE: ", response.data)
                 setUserData(response.data.idusers, response.data.token)
                 window.location.assign("/home")
             }
         }).catch(response => {
-            console.log("ERRO NO LOGIN")
+            alert("ERRO NO LOGIN")
         })
     }
 

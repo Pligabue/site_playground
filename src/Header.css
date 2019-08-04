@@ -10,6 +10,8 @@
     background-color: white;
     white-space: nowrap;
     width: 100%;
+    position: fixed;
+    z-index: 10;
 }
 
 .navigation, .navigationLogin {
@@ -74,7 +76,7 @@
 
 
 .header img {
-    position: absolute;
+    position: fixed;
     left: 15px;
     width: 150px;
 }
@@ -82,15 +84,21 @@
 
 .border {
     padding: 1px 0;
+    width: 100%;
     background: linear-gradient(to right, black, rgb(141, 172, 216));
+    position: fixed;
+    top: 3.8rem;
+    z-index: 5;
 }
 
 
 .nome {
     font-family: "Amatic SC";
-    position: absolute;
-    left: 6em;
+    position: relative;
+    top: 4rem;
+    left: 12rem;
     white-space: nowrap;
+    position: fixed;
 }
 
 

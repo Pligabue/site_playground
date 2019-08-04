@@ -8,8 +8,7 @@ import axios from 'axios';
 import {url_v3} from "./App"
 
 function logOut(props) {
-    console.log("LOGOUT PROPS ", props)
-    console.log("LOGOUT HISTORY ", props.history)
+    
     const url = url_v3 + "/logout"
     axios.post(url, {
         idusers: props.idusers
@@ -22,7 +21,6 @@ function logOut(props) {
 
 function LoggedStatus(props) {
     
-    console.log("LOGGED STATUS HISTORY ", props.history)
     return props.isLoggedIn ? 
         (<div>
             <Link to="/profile">Profile</Link>
@@ -44,14 +42,12 @@ class Header extends React.Component {
             isLoggedIn: this.props.isLoggedIn,
             idusers: this.props.idusers,
         }
-        console.log("CONSTRUCTOR: ", this.props.history)
     }
 
     render(){
         return(<div>
         
             <div className="header">
-                
                 <Link to="/home"><img src={logo} alt="Foto das cachoeiras" /></Link>
                 <div className="navigation">
                     <Link to="/home">Home</Link>
@@ -63,7 +59,7 @@ class Header extends React.Component {
                 </div>
             </div>
 
-            <div className="border"></div>
+            <div className="border" />
 
             <div>
                 <h1 className="nome">Cataratas do Iguaçu</h1>

@@ -32,6 +32,11 @@ class App extends React.Component {
             }).then(response => {
                 this.setState({
                     isLoggedIn: response.data
+                }, () => {
+                    if (!this.state.isLoggedIn) {
+                        clearUserData()
+                        window.location.reload()
+                    }
                 })
             })
     }
