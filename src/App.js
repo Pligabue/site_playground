@@ -12,6 +12,7 @@ import SignUp from "./SignUp"
 
 import {getUserData, setUserData, clearUserData} from "./Authentication"
 import axios from 'axios';
+import Profile from './Profile';
 
 export const url_v3 = "http://127.0.0.1:5000"
 
@@ -42,20 +43,23 @@ class App extends React.Component {
     }
   
     render () {
-    return (<div className="App">
-        <Router>
-            <Header idusers={this.state.idusers} isLoggedIn={this.state.idusers} />
-            <Switch>
-                <Route path="/home" component={Home}/>
-                <Route path="/about" component={About}/>
-                <Route path="/posts" component={Posts}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/signup" component={SignUp}/>
-                <Redirect to="/home" />
-            </Switch>
-        </Router>
-    </div>)
-  }
+        return (<div className="App">
+            <Router>
+                <Header idusers={this.state.idusers} isLoggedIn={this.state.idusers} />
+                <Switch>
+                    <Route path="/home" component={Home}/>
+                    <Route path="/about" component={About}/>
+                    <Route path="/posts" component={Posts}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/signup" component={SignUp}/>
+                    <Route path="/profile/:idusers" render={(props) => (
+                        <Profile key={props.match.params.idusers} {...props} />
+                    )} />
+                    <Redirect to="/home" />
+                </Switch>
+            </Router>
+        </div>)
+    }
 }
 
 export default App;

@@ -23,7 +23,7 @@ function LoggedStatus(props) {
     
     return props.isLoggedIn ? 
         (<div>
-            <Link to="/profile">Profile</Link>
+            <Link to={"/profile/" + props.idusers}>Profile</Link>
             <div className="link-button" >
                 <button onClick={() => logOut(props)} idusers={props.idusers} history={props.history} >Log Out</button>
             </div>    

@@ -34,7 +34,10 @@ class SignUp extends React.Component {
                 password : this.state.password,
             }
         ).then(response => {
-            console.log("Response: ", response.data)
+            if (!response.data) {
+                alert("Erro ao cadastrar usuário. Tente novamente.")
+                return
+            }
             alert("Usuário cadastrado com sucesso.")
         }).catch(error => {
             alert("Erro ao cadastrar usuário. Tente novamente.")
