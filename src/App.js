@@ -9,6 +9,7 @@ import About from "./About"
 import Login from "./Login"
 import Posts from "./Posts"
 import SignUp from "./SignUp"
+import noMatch from "./noMatch"
 
 import {getUserData, setUserData, clearUserData} from "./Authentication"
 import axios from 'axios';
@@ -48,6 +49,7 @@ class App extends React.Component {
                 <Header idusers={this.state.idusers} isLoggedIn={this.state.idusers} />
                 <Switch>
                     <Route path="/home" component={Home}/>
+                    <Route exact path="/" component={Home}/>
                     <Route path="/about" component={About}/>
                     <Route path="/posts" component={Posts}/>
                     <Route path="/login" component={Login}/>
@@ -55,6 +57,7 @@ class App extends React.Component {
                     <Route path="/profile/:idusers" render={(props) => (
                         <Profile key={props.match.params.idusers} {...props} />
                     )} />
+                    <Route component={noMatch} />
                     <Redirect to="/home" />
                 </Switch>
             </Router>
