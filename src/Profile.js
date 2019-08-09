@@ -13,8 +13,10 @@ class Profile extends React.Component {
             username: "",
             email: ""
         }
+    }
 
-        const url = url_v3 + "/profile/" + props.match.params.idusers
+    componentDidMount() {
+        const url = url_v3 + "/profile/" + this.props.match.params.idusers
         axios.get(url).then(response => {
             var container = document.getElementById("profile")
             
@@ -27,10 +29,9 @@ class Profile extends React.Component {
             container.appendChild(email)
 
         }).catch((error) => {
-            alert("ERRO NO CARREGAMENTO")
+            alert("ERRO NO CARREGAMENTO\n", error)
         })
     }
-
 
 
     render(){

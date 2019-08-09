@@ -38,7 +38,11 @@ class Login extends React.Component {
                 window.location.assign("/home")
             }
         }).catch(response => {
-            alert("ERRO NO LOGIN")
+            document.getElementById("email").style.borderColor = "red"
+            document.getElementById("password").style.borderColor = "red"
+            
+            var message = document.getElementById("message")
+            message.innerHTML = "E-mail ou senha incorretos."
         })
     }
 
@@ -51,6 +55,7 @@ class Login extends React.Component {
                 <label htmlFor="password">Senha:</label>
                 <input type="password" name="password" id="password" onChange={this.handleChange}/>
                 <button>Login</button>
+                <label id="message"></label>
             </form>
         </div>)
     }
