@@ -36,10 +36,9 @@ class Login extends React.Component {
         }, config)
         .then(response => {
             console.log(response)
-            if (!response.data.idusers || !response.data.token) {
+            if (!response.data) {
                 clearUserData()
             } else {
-                setUserData(response.data.idusers, response.data.token)
                 window.location.assign("/home")
             }
         }).catch(response => {

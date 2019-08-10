@@ -8,15 +8,11 @@ import axios from 'axios';
 import {url_v3} from "./App"
 
 function logOut(props) {
-    
-    const url = url_v3 + "/logout"
-    axios.post(url, {
-        idusers: props.idusers
-    }).then(response => {
-        clearUserData()
-        props.history.push("/home")
-        window.location.reload();
-    })
+    const { cookies } = props
+    cookies.remove("idusersPL")
+    cookies.remove("tokenPL")
+    props.history.push("/home")
+    window.location.reload();
 }
 
 function LoggedStatus(props) {
@@ -25,7 +21,7 @@ function LoggedStatus(props) {
         (<div>
             <Link to={"/profile/" + props.idusers}>Profile</Link>
             <div className="link-button" >
-                <button onClick={() => logOut(props)} idusers={props.idusers} history={props.history} >Log Out</button>
+                <button onClick={() => logOut(props)} >Log Out</button>
             </div>    
         </div>)
         : (<div>
@@ -55,7 +51,7 @@ class Header extends React.Component {
                     <Link to="/posts">Posts</Link>
                 </div>
                 <div className="navigationLogin">
-                    <LoggedStatus isLoggedIn={this.state.isLoggedIn} idusers={this.state.idusers} history={this.props.history} />
+                    <LoggedStatus {...this.props} />
                 </div>
             </div>
 

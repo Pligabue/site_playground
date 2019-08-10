@@ -1,6 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import './App.css';
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { withCookies } from "react-cookie"
+import "./App.css";
 
 
 import Header from "./Header"
@@ -19,50 +20,47 @@ export const url_v3 = "http://127.0.0.1:5000"
 
 class App extends React.Component {
     
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        const {cookies} = this.props
+        console.log(cookies)
         this.state = {
-            idusers: getUserData().idusers,
-            token: getUserData().token,
-            isLoggedIn: false
+            idusers: Number(cookies.get("idusersPL")),
+            token: Number(cookies.get("tokenPL")),
+            isLoggedIn: (cookies.get("idusersPL") != null && cookies.get("tokenPL") != null)
         }
+        console.log("COOKIES IS ", cookies)
         
-        if (this.state.idusers != null && this.state.token != null)
-            axios.post(url_v3+"/verifylogin", {
-                idusers: this.state.idusers,
-                token: this.state.token
-            }).then(response => {
-                this.setState({
-                    isLoggedIn: response.data
-                }, () => {
-                    if (!this.state.isLoggedIn) {
-                        clearUserData()
-                        window.location.reload()
-                    }
-                })
+        if (this.state.idusers != null && this.state.token != null) {
+            axios.get(url_v3+"/verifylogin", {
+                withCredentials: true
             })
+            .catch(error => {
+                cookies.remove("idusersPL")
+                cookies.remove("tokenPL")
+                console.log("ERRO: ", error)
+            })
+        }
     }
   
     render () {
         return (<div className="App">
-            <Router>
-                <Header idusers={this.state.idusers} isLoggedIn={this.state.idusers} />
-                <Switch>
-                    <Route path="/home" component={Home}/>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/posts" component={Posts}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/signup" component={SignUp}/>
-                    <Route path="/profile/:idusers" render={(props) => (
-                        <Profile key={props.match.params.idusers} {...props} />
-                    )} />
-                    <Route component={noMatch} />
-                    <Redirect to="/home" />
-                </Switch>
-            </Router>
+            <Header idusers={this.state.idusers} isLoggedIn={this.state.idusers} {...this.props} />
+            <Switch>
+                <Route path="/home" component={Home}/>
+                <Route exact path="/" component={Home}/>
+                <Route path="/about" component={About}/>
+                <Route path="/posts" component={Posts}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/signup" component={SignUp}/>
+                <Route path="/profile/:idusers" render={(props) => (
+                    <Profile key={props.match.params.idusers} {...props} />
+                )} />
+                <Route component={noMatch} />
+                <Redirect to="/home" />
+            </Switch>
         </div>)
     }
 }
 
-export default App;
+export default withCookies(App);
