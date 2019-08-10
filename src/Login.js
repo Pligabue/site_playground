@@ -27,10 +27,15 @@ class Login extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         const url = url_v3 + "/login"
+        const config = {
+            withCredentials: true
+        }
         axios.post(url, {
             email: this.state.email,
             password: this.state.password    
-        }).then(response => {
+        }, config)
+        .then(response => {
+            console.log(response)
             if (!response.data.idusers || !response.data.token) {
                 clearUserData()
             } else {
@@ -43,6 +48,9 @@ class Login extends React.Component {
             
             var message = document.getElementById("message")
             message.innerHTML = "E-mail ou senha incorretos."
+
+        }).finally(() => {
+            document.getElementById("password").value = ""
         })
     }
 
