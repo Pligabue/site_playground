@@ -3,10 +3,6 @@ import {Link, withRouter} from "react-router-dom"
 import logo from "./logo_cachoeira.png"
 import "./Header.css"
 
-import {setUserData, getUserData, clearUserData} from "./Authentication"
-import axios from 'axios';
-import {url_v3} from "./App"
-
 function logOut(props) {
     const { cookies } = props
     cookies.remove("idusersPL")

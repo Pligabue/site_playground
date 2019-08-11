@@ -4,7 +4,6 @@ import "./Login.css"
 import axios from 'axios';
 
 import {url_v3} from "./App"
-import {getUserData, setUserData, clearUserData} from "./Authentication"
 
 class Login extends React.Component {
 
@@ -35,12 +34,7 @@ class Login extends React.Component {
             password: this.state.password    
         }, config)
         .then(response => {
-            console.log(response)
-            if (!response.data) {
-                clearUserData()
-            } else {
-                window.location.assign("/home")
-            }
+            window.location.assign("/home")
         }).catch(response => {
             document.getElementById("email").style.borderColor = "red"
             document.getElementById("password").style.borderColor = "red"

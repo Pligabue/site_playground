@@ -12,7 +12,6 @@ import Posts from "./Posts"
 import SignUp from "./SignUp"
 import noMatch from "./noMatch"
 
-import {getUserData, setUserData, clearUserData} from "./Authentication"
 import axios from 'axios';
 import Profile from './Profile';
 
@@ -22,14 +21,13 @@ class App extends React.Component {
     
     constructor(props) {
         super(props)
+        
         const {cookies} = this.props
-        console.log(cookies)
         this.state = {
             idusers: Number(cookies.get("idusersPL")),
             token: Number(cookies.get("tokenPL")),
             isLoggedIn: (cookies.get("idusersPL") != null && cookies.get("tokenPL") != null)
         }
-        console.log("COOKIES IS ", cookies)
         
         if (this.state.idusers != null && this.state.token != null) {
             axios.get(url_v3+"/verifylogin", {
@@ -54,7 +52,7 @@ class App extends React.Component {
                 <Route path="/login" component={Login}/>
                 <Route path="/signup" component={SignUp}/>
                 <Route path="/profile/:idusers" render={(props) => (
-                    <Profile key={props.match.params.idusers} {...props} />
+                    <Profile key={props.match.params.idusers} {...props} {...this.state} />
                 )} />
                 <Route component={noMatch} />
                 <Redirect to="/home" />

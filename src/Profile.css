@@ -13,4 +13,16 @@
     font-family: "Roboto Condensed";
     font-size: 1.5rem;
     text-align: left;
+    margin: 1rem 0;
+}
+
+.profile .edit button {
+    margin: 1rem 0;
+    height: 1.5rem;
+    float: right;
+}
+
+.profile .edit input {
+    margin: 1rem 0;
+    float: right;
 }
