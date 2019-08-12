@@ -9,6 +9,35 @@
     height: 100%;
 }
 
+.profile .divTable {
+    width: 100%;
+    font-family: "Roboto Condensed";
+    font-size: 1.5rem;
+}
+
+.profile .divTableCell {
+    padding: 1rem 0.5rem;
+    text-align: left;
+}
+
+.profile .divTableCell.left  {
+    width: 20%
+}
+
+.profile .divTableCell.middle  {
+    width: 60%
+}
+
+.profile .divTableCell {
+    padding: 1rem 0.5rem;
+    text-align: left;
+}
+
+.profile .divTableCell {
+    padding: 1rem 0.5rem;
+    text-align: left;
+}
+
 .profile p {
     font-family: "Roboto Condensed";
     font-size: 1.5rem;
@@ -16,13 +45,30 @@
     margin: 1rem 0;
 }
 
-.profile .edit button {
-    margin: 1rem 0;
-    height: 1.5rem;
-    float: right;
+.profile button {
+    background: none;
+    border: none; 
+    font-family: "Roboto Condensed";
+    color: black;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 0.2rem 1rem 0.3rem;
+    border-style: solid;
+    border-color: black;
 }
 
-.profile .edit input {
-    margin: 1rem 0;
-    float: right;
+.profile button:hover {
+    background-color: rgb(89, 131, 181);
+    color: white;
+    cursor: pointer;
+}
+
+.profile button:focus {
+    outline: none;
+}
+
+.profile input {
+    width: 100%;
+    font-family: "Roboto Condensed";
+    font-size: 1rem;
 }

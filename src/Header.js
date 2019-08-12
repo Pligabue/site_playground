@@ -7,8 +7,7 @@ function logOut(props) {
     const { cookies } = props
     cookies.remove("idusersPL")
     cookies.remove("tokenPL")
-    props.history.push("/home")
-    window.location.reload();
+    document.location.replace("/home");
 }
 
 function LoggedStatus(props) {

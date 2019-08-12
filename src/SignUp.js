@@ -14,7 +14,7 @@ class SignUp extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.state = {
             email : "",
-            user : "",
+            username : "",
             password : "",
         }
     }
@@ -51,7 +51,7 @@ class SignUp extends React.Component {
                 <label htmlFor="email">E-mail:</label>
                 <input type="email" name="email" ip="email" onChange={this.handleChange} />
                 <label htmlFor="user">Usuário:</label>
-                <input type="text" name="user" ip="user" onChange={this.handleChange} />
+                <input type="text" name="username" ip="username" onChange={this.handleChange} />
                 <label htmlFor="password">Senha:</label>
                 <input type="password" name="password" ip="password" onChange={this.handleChange} />
                 <button>Sign Up</button>
