@@ -5,7 +5,8 @@ import "./Profile.css"
 import {url_v3} from "./App" 
 import axios from 'axios';
 
-function builtButton() {
+function builtButtons() {
+
     let containerUser = document.getElementById("username-edit")
     let userEdit = document.createElement("button")
     userEdit.innerHTML = "Editar"
@@ -17,10 +18,16 @@ function builtButton() {
     emailEdit.innerHTML = "Editar"
     emailEdit.id = "email-edit-button"
     containerEmail.appendChild(emailEdit)
+
+    let containerDelete = document.getElementById("delete")
+    let deleteButton = document.createElement("button")
+    deleteButton.innerHTML = "Apagar Usuário"
+    deleteButton.id = "delete-button"
+    containerDelete.appendChild(deleteButton)
 }
 
-function buildOnClick(onClickFunction, state, handleSubmitUsername, handleSubmitEmail) {
-    console.log("State is ", state)
+function buildOnClick(onClickFunction, state, handleSubmitUsername, handleSubmitEmail, handleDelete) {
+    
     let containerUser = document.getElementById("username")
     let userButton = document.getElementById("username-edit-button")
     userButton.onclick = () => {
@@ -35,6 +42,7 @@ function buildOnClick(onClickFunction, state, handleSubmitUsername, handleSubmit
         userButton.innerHTML = "Salvar"
         userButton.onclick = handleSubmitUsername
         document.getElementById("email-edit").innerHTML = ""
+        document.getElementById("delete").innerHTML = ""
     }
 
     let containerEmail = document.getElementById("email")
@@ -51,17 +59,24 @@ function buildOnClick(onClickFunction, state, handleSubmitUsername, handleSubmit
         emailButton.innerHTML = "Salvar"
         emailButton.onclick = handleSubmitEmail
         document.getElementById("username-edit").innerHTML = ""
+        document.getElementById("delete").innerHTML = ""
     }
+
+    let deleteButton = document.getElementById("delete-button")
+    deleteButton.onclick = handleDelete
 }
 
 class Profile extends React.Component {
 
     constructor(props) {
         super(props)
-        console.log("PROFILE PROPS: ", props)
+
+        const {cookies} = this.props
+
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmitUsername = this.handleSubmitUsername.bind(this)
         this.handleSubmitEmail = this.handleSubmitEmail.bind(this)
+        this.handleDelete = this.handleDelete.bind(this)
 
         this.state = {
             idusers: this.props.idusers,
@@ -93,8 +108,8 @@ class Profile extends React.Component {
             alert("ERRO NO CARREGAMENTO\n", error)
         }).finally(() => {
             if (this.state.idusers === Number(this.props.match.params.idusers)) {
-                builtButton()
-                buildOnClick(this.handleChange, this.state, this.handleSubmitUsername, this.handleSubmitEmail)
+                builtButtons()
+                buildOnClick(this.handleChange, this.state, this.handleSubmitUsername, this.handleSubmitEmail, this.handleDelete)
             }
         })
     }
@@ -113,8 +128,11 @@ class Profile extends React.Component {
         axios.put(url, {
             username: this.state.username,
             idusers: this.state.idusers
+        }).then(response => {
+            if(!response.data) 
+                alert("Erro ao atualizar o nome do usuário.")
         }).catch(() => {
-            alert("Erro ao atualizar o nome de usuário.")
+            alert("Erro ao atualizar o nome do usuário.")
         }).finally(() => {
             window.location.reload()
         })
@@ -125,6 +143,9 @@ class Profile extends React.Component {
         axios.put(url, {
             email: this.state.email,
             idusers: this.state.idusers
+        }).then(response => {
+            if(!response.data) 
+                alert("Erro ao atualizar o e-mail do usuário.")
         }).catch(() => {
             alert("Erro ao atualizar o e-mail do usuário.")
         }).finally(() => {
@@ -132,11 +153,33 @@ class Profile extends React.Component {
         })
     }
 
+    handleDelete() {
+        
+        if (window.confirm("Tem certeza que quer deletar o usuário?")) {
+            const url = url_v3 + "/edit/delete"
+            axios.delete(url, {
+                withCredentials: true
+            }).then(response => {
+                if(response.data) {
+                    this.cookies.remove("idusersPL")
+                    this.cookies.remove("tokenPL") 
+                    window.location.assign("/home")
+                }
+                if(!response.data) 
+                    alert("Erro ao deletar o usuário.")
+            }).catch(() => {
+                alert("Erro ao deletar o usuário.")
+            }).finally(() => {
+                window.location.reload()
+            })
+        }
+    }
+
     render(){
         return(<div className="profile" id="profile">
+            
             <h1 className="title">Perfil</h1>
             
-
             <div className="divTable">
                 <div className="divTableRow">
                     <div className="divTableCell left">
@@ -153,7 +196,7 @@ class Profile extends React.Component {
                     <div className="divTableCell edit" id="email-edit" />
                 </div>
             </div>
-
+            <div className="delete" id="delete" />
         </div>)
     }
 } export default withRouter(Profile)

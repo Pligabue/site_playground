@@ -30,7 +30,7 @@ class SignUp extends React.Component {
         axios.post(url, 
             {
                 email : this.state.email,
-                user : this.state.user,
+                username : this.state.username,
                 password : this.state.password,
             }
         ).then(response => {
@@ -38,7 +38,10 @@ class SignUp extends React.Component {
                 alert("Erro ao cadastrar usuário. Tente novamente.")
                 return
             }
-            alert("Usuário cadastrado com sucesso.")
+            if (response.data) {
+                alert("Usuário cadastrado com sucesso.")
+                window.location.assign("/home")
+            }
         }).catch(error => {
             alert("Erro ao cadastrar usuário. Tente novamente.")
         })    
@@ -50,7 +53,7 @@ class SignUp extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="email">E-mail:</label>
                 <input type="email" name="email" ip="email" onChange={this.handleChange} />
-                <label htmlFor="user">Usuário:</label>
+                <label htmlFor="username">Usuário:</label>
                 <input type="text" name="username" ip="username" onChange={this.handleChange} />
                 <label htmlFor="password">Senha:</label>
                 <input type="password" name="password" ip="password" onChange={this.handleChange} />

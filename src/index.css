@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-y:scroll;
   
+  overflow-y: scroll;
   background-image: url("./P_20190717_144755.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -16,6 +16,8 @@ body {
 html, body, #root {
     height: 100%;
 }
+
+/* html { margin-left: calc(100vw - 100%); } */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

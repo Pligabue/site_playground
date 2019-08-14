@@ -22,7 +22,9 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         
+        console.log("PROFILE PROPS: ", props)
         const {cookies} = this.props
+        console.log("PROFILE PROPS: ", props)
         this.state = {
             idusers: Number(cookies.get("idusersPL")),
             token: Number(cookies.get("tokenPL")),
@@ -52,7 +54,7 @@ class App extends React.Component {
                 <Route path="/login" component={Login}/>
                 <Route path="/signup" component={SignUp}/>
                 <Route path="/profile/:idusers" render={(props) => (
-                    <Profile key={props.match.params.idusers} {...props} {...this.state} />
+                    <Profile key={props.match.params.idusers} {...props} {...this.state} cookies={this.cookies} />
                 )} />
                 <Route component={noMatch} />
                 <Redirect to="/home" />
