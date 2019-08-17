@@ -22,9 +22,8 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         
-        console.log("PROFILE PROPS: ", props)
         const {cookies} = this.props
-        console.log("PROFILE PROPS: ", props)
+        
         this.state = {
             idusers: Number(cookies.get("idusersPL")),
             token: Number(cookies.get("tokenPL")),
@@ -38,7 +37,6 @@ class App extends React.Component {
             .catch(error => {
                 cookies.remove("idusersPL")
                 cookies.remove("tokenPL")
-                console.log("ERRO: ", error)
             })
         }
     }

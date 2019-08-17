@@ -71,8 +71,6 @@ class Profile extends React.Component {
     constructor(props) {
         super(props)
 
-        const {cookies} = this.props
-
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmitUsername = this.handleSubmitUsername.bind(this)
         this.handleSubmitEmail = this.handleSubmitEmail.bind(this)
