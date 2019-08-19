@@ -45,7 +45,7 @@ class Header extends React.Component {
                 <div className="navigation">
                     <Link to="/home">Home</Link>
                     <Link to="/about">About</Link>
-                    <Link to="/posts">Posts</Link>
+                    <Link to="/posts/page/1">Posts</Link>
                 </div>
                 <div className="navigationLogin">
                     <LoggedStatus {...this.props} />

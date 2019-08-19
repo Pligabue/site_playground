@@ -10,7 +10,8 @@ import About from "./About"
 import Login from "./Login"
 import Posts from "./Posts"
 import SignUp from "./SignUp"
-import noMatch from "./noMatch"
+import NoMatch from "./NoMatch"
+import SinglePost from "./SinglePost"
 
 import axios from 'axios';
 import Profile from './Profile';
@@ -48,13 +49,18 @@ class App extends React.Component {
                 <Route path="/home" component={Home}/>
                 <Route exact path="/" component={Home}/>
                 <Route path="/about" component={About}/>
-                <Route path="/posts" component={Posts}/>
+                <Route exact path="/posts/page/:page" render={(props) => (
+                    <Posts key={props.match.params.page} {...props} {...this.state} />
+                )} />
+                <Route exact path="/posts/id/:idposts" render={(props) => (
+                    <SinglePost key={props.match.params.page} {...props} />
+                )} />
                 <Route path="/login" component={Login}/>
                 <Route path="/signup" component={SignUp}/>
                 <Route path="/profile/:idusers" render={(props) => (
-                    <Profile key={props.match.params.idusers} {...props} {...this.state} cookies={this.cookies} />
+                    <Profile key={props.match.params.idusers} {...props} {...this.state} />
                 )} />
-                <Route component={noMatch} />
+                <Route component={NoMatch} />
                 <Redirect to="/home" />
             </Switch>
         </div>)

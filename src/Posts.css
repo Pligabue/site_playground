@@ -5,5 +5,96 @@
     left: 30%;
     width: 30%;
     padding: 0 5%;
-    height: 100%;
+    min-height: 100%;
+}
+
+.posts #mainTitle {
+    text-align: center;
+}
+
+.posts input, .posts textarea {
+    font-family: "Roboto Condensed";
+    width: 100%;
+    line-height: 2em;
+    display: block;
+    padding: 0 5px;
+    border-style: solid;
+    margin-bottom: 2em;
+} 
+
+.posts input:focus, .posts textarea:focus {
+    outline: none;
+}
+
+.posts textarea {
+    resize: none;
+    overflow: hidden;
+    border-color: black;
+    border-width: 2px;
+} 
+
+.posts button {
+    font-family: "Roboto Condensed";
+    background-color: white;
+    padding: 0.75em 1.5em;
+    border-color: black;
+    
+    position: relative;
+    left: 40%;
+
+    margin-bottom: 5rem;
+} 
+
+.posts button:hover {
+    background-color: rgb(89, 131, 181);
+    color: white;
+} 
+
+.posts button:active {
+    transform: scale(0.99);
+}
+
+.posts button:focus {
+    outline: none;
+}
+
+.posts #posts {
+    padding-bottom: 1rem;
+}
+
+.posts #posts div {
+    margin-bottom: 5rem;
+}
+
+.posts .postBorder {
+    padding: 1px 0;
+    width: 100%;
+    background: linear-gradient(to right, white, black, white);
+}
+
+.posts a, .posts a:visited {
+    display: block;
+    font-family: "Roboto Condensed";
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    word-wrap: break-word;
+    text-decoration: none;
+}
+
+.posts h2 {
+    font-family: "Roboto Condensed";
+    text-align: left;
+}
+
+.posts h3 {
+    font-family: "Roboto Condensed";
+    text-align: right;
+}
+
+.posts p {
+    font-family: "Roboto Condensed";
+    text-align: left;
+    word-wrap: break-word;
 }
